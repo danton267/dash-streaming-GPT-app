@@ -23,6 +23,9 @@ I also added a second clientside callback which disables the submit button so th
 ChatGPT is your friend, there is nothing it won't be able to help/teach you when it comes to JS.
 
 Whenever you are changing the JS code, it is good idea to "flush" your browser cache otherwise sometimes you might not see changes done in your code reflected in your browser because it cached the old version of the code and refuses to load the new one.
+
 On windows you can simply press `CTRL + F5` to do that.
+
 On mac you can press `CMD + SHIFT + R` to do that.
+
 And by doing this you will force your browser to load the new version of the code.
