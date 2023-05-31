@@ -46,6 +46,8 @@ def streaming_chat():
     user_prompt = request.json["prompt"]
 
     # prompt engineering/data augmentation can be performed here
+    # important thing is that this is happening on the backend, so that the users can't tamper with this
+    # JS front-end only handles the response, and nothing else
     chat_completion_prompt = [
         {
             "role": "system",
