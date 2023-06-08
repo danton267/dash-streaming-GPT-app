@@ -22,7 +22,10 @@ app.layout = html.Div(
         dcc.Input(id="text-prompt", placeholder="Ask a question"),
         html.Button("Submit", id="submit-prompt"),
         html.H2("OpenAI text stream"),
-        html.P(id="response-window"),
+        html.P(
+            id="response-window",
+            style={"max-width": "600px"},
+        ),
     ]
 )
 
@@ -49,7 +52,7 @@ def streaming_chat():
     chat_completion_prompt = [
         {
             "role": "system",
-            "content": "Answer the following question as a pirate. Question:\n",
+            "content": "Answer the following question as a pirate. Respond in markdown format. Question:\n",
         },
         {"role": "user", "content": user_prompt},
     ]
