@@ -7,9 +7,11 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             // eg "#response-window-${element_id}"
             const responseWindow = document.querySelector("#response-window");
             
-            // this is the markdown parser we will use to parse the incoming stream
-            // if you wish to change color scheme of the parsed code(if that is relevant to you), you can do so in asssets/external/markdown-code.css
-            // it is also a good idea to state in the prompt that the "response should be markdown formatted".
+            // "marked.js" is used to parse the incoming stream
+            // it is also a good idea to state in the prompt that the "response should be markdown formatted"
+            // this definition changes the color scheme of the parsed code. If your use-case does not include parsing code, you can remove this part, as well as "asssets/external/highlight.min.js" and "asssets/external/markdown-code.css"
+            // if your application use-case includes parsing code and wish to change color scheme of the parsed code, you can do so in "asssets/external/markdown-code.css"
+            // alternatively, you can go to "https://highlightjs.org/static/demo/" to find a theme you like and then download it from "https://github.com/highlightjs/highlight.js/tree/main/src/styles"
             marked.setOptions({
                 highlight: function(code) {
                     return hljs.highlightAuto(code).value;
@@ -39,7 +41,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                 const { done, value } = await reader.read();
                 if (done) break;
                 chunks += decoder.decode(value);
-                const htmlText = marked.parse(chunks); // this line will parse the incoming stream as markdown text
+                const htmlText = marked.parse(chunks); // this line will parse the incoming stream as markdown text, using "marked.js" package
                 responseWindow.innerHTML = htmlText;
             }
             
