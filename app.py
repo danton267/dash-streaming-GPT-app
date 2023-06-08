@@ -24,7 +24,7 @@ app.layout = html.Div(
         html.H2("OpenAI text stream"),
         html.P(
             id="response-window",
-            style={"max-width": "600px"},
+            style={"max-width": "600px", "text-align": "justify"},
         ),
     ]
 )
